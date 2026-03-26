@@ -17,6 +17,10 @@
   "scripts": {
     "build": "tsup src/index.ts --config ../../tsup.config.ts",
     "lint": "tsc --noEmit -p tsconfig.json",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "bun run build"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

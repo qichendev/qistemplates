@@ -1,4 +1,4 @@
-import { mkdir, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,8 +20,46 @@ export function getAvailableTemplates(): TemplateMeta[] {
     {
       id: "node-lib",
       description: "Minimal Node.js package template"
+    },
+    {
+      id: "bun-lib",
+      description: "Bun-based TypeScript library template"
     }
   ];
+}
+
+async function copyTemplateDirectory(
+  sourceDir: string,
+  destinationDir: string,
+  replacements: Record<string, string>
+) {
+  const entries = await readdir(sourceDir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const sourcePath = path.join(sourceDir, entry.name);
+    const destinationName = entry.name.replace(/^_gitignore$/, ".gitignore");
+    const destinationPath = path.join(destinationDir, destinationName);
+
+    if (entry.isDirectory()) {
+      await mkdir(destinationPath, { recursive: true });
+      await copyTemplateDirectory(sourcePath, destinationPath, replacements);
+      continue;
+    }
+
+    const fileInfo = await stat(sourcePath);
+
+    if (!fileInfo.isFile()) {
+      continue;
+    }
+
+    const content = await readFile(sourcePath, "utf8");
+    const rendered = Object.entries(replacements).reduce(
+      (current, [key, value]) => current.replaceAll(`{{${key}}}`, value),
+      content
+    );
+
+    await writeFile(destinationPath, rendered, "utf8");
+  }
 }
 
 export async function createProject(input: CreateProjectInput) {
@@ -38,13 +76,15 @@ export async function createProject(input: CreateProjectInput) {
 
   const destination = path.resolve(process.cwd(), input.projectName);
   await mkdir(destination, { recursive: true });
+  const templateSource = path.join(templatesDir, input.templateId);
+  const projectPackageName = input.projectName.startsWith("@")
+    ? input.projectName
+    : input.projectName.toLowerCase();
 
-  const readme = `# ${input.projectName}
-
-Created from template: ${input.templateId}
-`;
-
-  await writeFile(path.join(destination, "README.md"), readme, "utf8");
+  await copyTemplateDirectory(templateSource, destination, {
+    projectName: input.projectName,
+    packageName: projectPackageName
+  });
 
   return {
     destination,

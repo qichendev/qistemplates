@@ -21,7 +21,8 @@
     "build": "tsup src/cli.ts --config ../../tsup.config.ts",
     "dev": "bun run src/cli.ts",
     "lint": "tsc --noEmit -p tsconfig.json",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "bun run build"
   },
   "dependencies": {
     "@qitemplates/core": "workspace:*",

@@ -19,8 +19,5 @@
     "lint": "tsc --noEmit -p tsconfig.json",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "prepublishOnly": "bun run build"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

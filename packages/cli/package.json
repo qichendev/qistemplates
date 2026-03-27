@@ -28,8 +28,5 @@
     "qitemplates-core": "workspace:*",
     "@clack/prompts": "^0.10.1",
     "commander": "^14.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

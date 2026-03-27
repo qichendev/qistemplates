@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --filter=@qitemplates/cli",
+    "dev": "turbo run dev --filter=qitemplates-cli",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "changeset": "changeset",

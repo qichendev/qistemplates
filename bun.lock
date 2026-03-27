@@ -13,20 +13,20 @@
       },
     },
     "packages/cli": {
-      "name": "@qitemplates/cli",
-      "version": "0.0.0",
+      "name": "qitemplates-cli",
+      "version": "0.1.0",
       "bin": {
         "qi": "./dist/cli.js",
       },
       "dependencies": {
         "@clack/prompts": "^0.10.1",
-        "@qitemplates/core": "workspace:*",
         "commander": "^14.0.0",
+        "qitemplates-core": "workspace:*",
       },
     },
     "packages/core": {
-      "name": "@qitemplates/core",
-      "version": "0.0.0",
+      "name": "qitemplates-core",
+      "version": "0.1.0",
     },
   },
   "packages": {
@@ -141,10 +141,6 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
-
-    "@qitemplates/cli": ["@qitemplates/cli@workspace:packages/cli"],
-
-    "@qitemplates/core": ["@qitemplates/core@workspace:packages/core"],
 
     "@rollup/rollup-android-arm-eabi": ["@rollup/rollup-android-arm-eabi@4.60.0", "", { "os": "android", "cpu": "arm" }, "sha512-WOhNW9K8bR3kf4zLxbfg6Pxu2ybOUbB2AjMDHSQx86LIF4rH4Ft7vmMwNt0loO0eonglSNy4cpD3MKXXKQu0/A=="],
 
@@ -365,6 +361,10 @@
     "postcss-load-config": ["postcss-load-config@6.0.1", "", { "dependencies": { "lilconfig": "^3.1.1" }, "peerDependencies": { "jiti": ">=1.21.0", "postcss": ">=8.0.9", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["jiti", "postcss", "tsx", "yaml"] }, "sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g=="],
 
     "prettier": ["prettier@2.8.8", "", { "bin": { "prettier": "bin-prettier.js" } }, "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="],
+
+    "qitemplates-cli": ["qitemplates-cli@workspace:packages/cli"],
+
+    "qitemplates-core": ["qitemplates-core@workspace:packages/core"],
 
     "quansync": ["quansync@0.2.11", "", {}, "sha512-AifT7QEbW9Nri4tAwR5M/uzpBuqfZf+zwaEM/QkzEjj7NBuFD2rBuy0K3dE+8wltbezDV7JMA0WfnCPYRSYbXA=="],
 

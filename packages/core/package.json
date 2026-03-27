@@ -1,5 +1,5 @@
 {
-  "name": "@qitemplates/core",
+  "name": "qitemplates-core",
   "version": "0.1.0",
   "description": "Core project creation logic for qistemplates.",
   "type": "module",

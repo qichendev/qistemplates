@@ -1,4 +1,4 @@
-# @qitemplates/cli
+# qitemplates-cli
 
 ## 0.1.0
 
@@ -9,4 +9,4 @@
 ### Patch Changes
 
 - Updated dependencies [a7d92b7]
-  - @qitemplates/core@0.1.0
+  - qitemplates-core@0.1.0

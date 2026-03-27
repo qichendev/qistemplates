@@ -1,4 +1,4 @@
-# @qitemplates/core
+# qitemplates-core
 
 ## 0.1.0
 

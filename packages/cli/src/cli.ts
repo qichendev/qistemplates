@@ -2,7 +2,7 @@
 
 import { intro, isCancel, outro, select, text } from "@clack/prompts";
 import { Command } from "commander";
-import { createProject, getAvailableTemplates } from "@qitemplates/core";
+import { createProject, getAvailableTemplates } from "qitemplates-core";
 
 const program = new Command();
 

@@ -19,7 +19,7 @@ bun run typecheck
 ```
 
 The workspace is orchestrated with Turborepo. Build outputs are cached per package, and
-`@qitemplates/cli` will automatically wait for `@qitemplates/core` to finish building first.
+`qitemplates-cli` will automatically wait for `qitemplates-core` to finish building first.
 
 ## Release
 
@@ -31,7 +31,7 @@ The release flow is automated with GitHub Actions and Changesets.
 
 - `.github/workflows/ci.yml` validates lint, typecheck, and build on pull requests and `main`
 - `.github/workflows/release.yml` creates or updates a Changesets release PR on `main`
-- When that PR is merged and `NPM_TOKEN` is configured, Changesets publishes `@qitemplates/core` and `@qitemplates/cli` to npm
+- When that PR is merged and `NPM_TOKEN` is configured, Changesets publishes `qitemplates-core` and `qitemplates-cli` to npm
 
 Required repository secrets:
 

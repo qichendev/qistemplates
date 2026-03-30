@@ -2,6 +2,7 @@
 
 import { intro, isCancel, outro, select, text } from "@clack/prompts";
 import { Command } from "commander";
+import packageJson from "../package.json" with { type: "json" };
 import { createProject, getAvailableTemplates } from "qitemplates-core";
 
 const program = new Command();
@@ -9,7 +10,7 @@ const program = new Command();
 program
   .name("qi")
   .description("Create projects from templates stored in this monorepo.")
-  .version("0.0.0");
+  .version(packageJson.version);
 
 program
   .command("list")

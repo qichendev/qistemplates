@@ -1,5 +1,11 @@
 # qitemplates-cli
 
+## 0.1.1
+
+### Patch Changes
+
+- 102c690: Fix the published CLI manifest so the `qitemplates-core` dependency resolves to a normal npm semver range instead of a `workspace:*` protocol.
+
 ## 0.1.0
 
 ### Minor Changes
